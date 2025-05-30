@@ -1,700 +1,1553 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-     <title>Agency Landing Page</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        
+        :root {
+            --primary-color: #EF6D58; /* Orange */
+            --secondary-color: #28293E; /* Dark Blue */
+            --text-lighAt: #FDF0E9; /* Off-white */
+            --text-dark: #391400; /* Dark Brown */
+            --light-grey: #F3D1BF;
+            --muted-text: #BDC3C7; /* Muted text color */
+        }
+
         body {
-    font-family: sans-serif; /* Choose a suitable font */
- 
-    color: #ecf0f1; /* Light text */
-}
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            background-color: var(--secondary-color);
+        }
 
-.navbar {
-    padding: 1rem 0;
-    background-color: transparent !important;
-}
+        /* Navbar Styling */
+        .navbar {
+            padding: 1rem 0;
+            background-color: transparent !important;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
 
-.navbar-brand {
-    font-size: 1.5rem;
-    color: #ffffff !important;
-}
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--text-light) !important;
+            font-weight: 700;
+        }
 
-.nav-link {
-    color: #ffffff !important;
-    margin-left: 1rem;
-    
-}
+        .navbar-brand img {
+            height: 40px; /* Adjust logo size */
+        }
 
-.nav-link:hover {
-    color: #3498db !important; /* Blue hover color */
-}
+        .nav-link {
+            color: var(--text-light) !important;
+            margin-left:7.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-.navbar .btn-primary {
-    background-color: rgba(255, 68, 0, 0.856); /* Orange contact button */
-    border-color: rgba(255, 68, 0, 0.856);
-}
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
 
-.navbar .btn-primary:hover {
-    background-color: rgba(255, 68, 0, 0.856);
-    border-color: rgba(255, 68, 0, 0.856);
-}
-@media(min-width:992px){
-    
-}
-.hero {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-}
+        .navbar .btn-outline-secondary {
+            color: var(--text-light);
+            border-color: var(--text-light);
+            border-radius: 50px;
+            padding: 0.75rem 1.75rem;
+            transition: all 0.3s ease;
+            margin-left:7.5rem;
+          
+        }
 
-.hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    color: #ffffff;
-}
+        .navbar .btn-outline-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
 
-.hero .text-muted {
-    color: #bdc3c7 !important;
-}
+        /* Hero Section */
+        .hero {
+            background-color: var(--secondary-color);
+            padding-top: 10rem; /* Adjust to give space for fixed navbar */
+            padding-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero .btn-primary {
-    background-color: rgba(255, 68, 0, 0.856); /* Orange button */
-    border-color: #e67e22;
-}
+        .hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.2;
+            color: var(--text-light);
+            font-weight: 700;
+        }
 
-.hero .btn-primary:hover {
-    background-color: #d35400;
-    border-color: #d35400;
-}
+        .hero .text-muted {
+            color: var(--muted-text) !important;
+        }
 
-.hero .btn-outline-secondary {
-    color: #bdc3c7;
-    border-color: #bdc3c7;
-}
+        .hero .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
 
-.hero .btn-outline-secondary:hover {
-    background-color: #bdc3c7;
-    color: #2c3e50;
-}
+        .hero .btn-primary:hover {
+            background-color: #d35400; /* Darker orange */
+            border-color: #d35400;
+        }
 
+        .hero .btn-outline-secondary {
+            color: var(--muted-text);
+            border-color: var(--muted-text);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-.blue-box {
-    overflow: hidden; /* To contain the image within the rounded borders */
-    height: auto; /* Adjust as needed, or let the image dictate */
-}
+        .hero .btn-outline-secondary:hover {
+            background-color: var(--muted-text);
+            color: var(--secondary-color);
+        }
 
-.blue-box img.fill-box {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent extra space below the image */
-    object-fit: cover; /* Ensure the image fills the box without distortion */
-}
-    </style>
- </head>
- <body>
-    <header class="hero py-1" style="background-color: #2c3e50;">
-        <div class="container" >
-     <nav class="navbar navbar-expand-lg "  >
-         <div class="container" >
-             <a class="navbar-brand fw-bold" href="#"><img src="logo.png"></a>
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                 <ul class="navbar-nav">
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">About</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">Services</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">Pricing</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">Blog</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class=" btn btn-outline-secondary rounded-pill px-4 text-white margin-left-5" href="#" style="margin-left: 6rem;">Contact</a>
-                     </li>
-                 </ul>
-             </div>
-         </div>
-     </nav>
+        .blue-box {
+            border-radius: 15px; /* Rounded corners for the image container */
+            overflow: hidden;
+            height: auto;
+        }
 
- 
-       
-             <div class="row align-items-center">
-                 <div class="col-md-6">
-                     <span class="text-uppercase  fw-bold" style="color: rgba(255, 68, 0, 0.856);">MODERN STUDIO</span>
-                     <h1 class="display-4 fw-bold mb-4">We're Help<br>To Build Your<br>Dream Project</h1>
-                     <p class="lead text-muted mb-4">Agency provides a full service range including technical skills, design, business understanding.</p>
-                     <div>
-                         <a href="#" class="btn btn-primary  px-4 py-2 me-3">HOW WE WORK</a>
-                         <a href="#" class="btn btn-outline-secondary  px-4 py-2">Contact Us</a>
-                     </div>
-                     <div>
-                        <p  style="margin-top: 3rem;"><img src="Bitmap.png" style="width: 48px; height: 48px;"><span style="margin-left: 1rem;" class="text-muted">"Put themselves in the merchant's shoes"</span>
-                   <br><span style="margin-left: 4.5rem;color: #ffffff;">Meta Inc.</span></p>
-                     </div>
-                 </div>
-                 <div class="col-md-6 d-flex justify-content-end">
-                     <div class="blue-box position-relative">
-                         
-                         <div class="woman-image">
-                            
-                             <img src="image1.png" alt="Smiling Woman" class="img1" style="width: 570px; height: 601.93px;">
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </header>
-     <section class="py-5" style="background-color: #FDF0E9;">
-        <div class="container">
-            <div style="display: block;
+        .blue-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Testimonial in Hero */
+        .hero .testimonial {
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero .testimonial img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .hero .testimonial .text-muted {
+            font-size: 0.9rem;
+        }
+
+        .hero .testimonial span:last-child {
+            display: block;
+            margin-left: calc(48px + 1rem); /* Align with text above */
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Section Styling - General */
+        .section-light {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 5rem 0;
+        }
+
+        .section-dark {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark); /* Default for light sections */
+        }
+
+        .section-dark h2 {
+            color: var(--text-light);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #495057; /* Muted dark text */
+        }
+
+        .section-dark p {
+            color: var(--light-grey);
+        }
+
+        .text-primary-brand {
+            color: var(--primary-color) !important;
+          
+        }
+
+        .text-dark-brand {
+            color: var(--text-dark) !important;
+        }
+
+        /* Logos Section */
+        .logos-section img {
+            width: 100%;
+            height: auto;
+            max-width: 860px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .logos-section hr {
+            height: 2px;
+            background-color: #F3D1BF;
+            opacity: 0.2; /* Ensure visibility */
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            width: 80%;
             margin-left: auto;
             margin-right: auto;
-            width: 80%;">
-          
-          <picture>
-            <source srcset="logo2.png" media="(min-width: 992px)">
-            <img src="logos.png" alt="Logo" class="responsive-logo" style="width: 100%; max-width: 860px; height: auto;">
-        </picture>            <br>
-            <hr style="width: 100%; height: 2px; background-color: #391400; margin-top: 3rem;">
-            </div>
-   
-            <div class="row align-items-center">
-                <div class="col-md-6 d-flex justify-content-center">
-                    <div class="image-area position-relative" style="margin-right: 6rem;">
-                       <img src="image2.png" alt="Profile" style="max-width: 100%; height: auto; margin-top: 6rem;">
+        }
+
+        /* About Section */
+        .about-section h2 {
+            font-size: 3rem;
+        }
+
+        .about-section .btn-outline-secondary {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .about-section .btn-outline-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section .row {
+            border: 1px solid var(--light-grey);
+            border-radius: 10px;
+            color: var(--text-dark);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .stats-section .col-md-4 {
+            border-right: 1px solid var(--light-grey);
+        }
+
+        .stats-section .col-md-4:last-child {
+            border-right: none;
+        }
+
+        .stats-section div {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stats-section p {
+            color: #495057;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* How We Work Section */
+        .how-we-work-section h2 {
+            font-size: 2.5rem;
+        }
+
+        .how-we-work-section p a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .how-we-work-section p a:hover {
+            color: var(--primary-color);
+        }
+
+        .how-we-work-section .step-number {
+            font-size: 5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1;
+            margin-right: 1.5rem;
+        }
+
+        /* Video Reel Section */
+        .video-reel-section .video-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .video-reel-section .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .video-reel-section .play-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .video-reel-section .play-button svg {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+        }
+
+        .video-reel-section .video-duration {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section .list-inline-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-section .list-inline-item a:hover,
+        .portfolio-section .list-inline-item.active a {
+            color: var(--primary-color);
+        }
+
+        .portfolio-section .list-inline-item span {
+            color: var(--light-grey);
+            font-size: 0.8rem;
+            margin-left: 0.25rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 400px; /* Fixed height for uniformity */
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            opacity: 1;
+        }
+
+        .portfolio-item .category-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--light-grey);
+            color: var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .portfolio-item .project-title {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .portfolio-section .btn-outline-secondary {
+            border-color: var(--light-grey);
+            color: var(--text-light);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-section .btn-outline-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Call to Action Section */
+        .cta-section .cta-card {
+            background-color: var(--text-light);
+            border-radius: 15px;
+            padding: 3rem;
+            position: relative;
+         
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .cta-section .cta-icon {
+            position: absolute;
+            top: -50px; /* Adjust based on icon size */
+            left: 50px;
+            width: 150px; /* Icon size */
+            height: 150px;
+            object-fit: contain;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-left: 100px; /* Space for icon */
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            margin-left: 100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section .graph-img {
+            max-width: 350px;
+            height: auto;
+            position: absolute;
+            right: 30%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.6;
+        }
+
+        .cta-section .girl-img {
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+            position: absolute;
+            right: 30px;
+            top: -60px; /* Position above the card */
+            z-index: 3;
+        }
+
+        /* Our Team Section */
+        .team-section .team-member-card {
+            background-color: #3A3C56; /* Slightly lighter dark blue */
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-section .team-member-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-section .team-member-card img {
+            width: 100%;
+            height: 280px; /* Fixed height for team images */
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .team-section .team-member-card h6 {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-section .team-member-card p {
+            color: var(--light-grey);
+            font-size: 0.9rem;
+        }
+
+        .team-section .arrow-buttons button {
+            border-color: var(--light-grey);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .team-section .arrow-buttons button:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .team-section .carousel-indicators-custom .dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--muted-text);
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .team-section .carousel-indicators-custom .dot.active {
+            background-color: var(--primary-color);
+        }
+
+
+        /* Pricing Section */
+        .pricing-section .pricing-card {
+            background-color: var(--text-light);
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%; /* Ensure cards are same height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-section .pricing-card.popular {
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: -20px; /* Lift popular card */
+            height: calc(100% + 40px); /* Make it taller */
+        }
+
+        .pricing-section .pricing-card h6 {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .pricing-section .pricing-card h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .pricing-section .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-section .pricing-card ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+
+        .pricing-section .pricing-card ul li .icon-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .pricing-section .pricing-card ul li .icon-circle.faded {
+            background-color: var(--light-grey);
+        }
+
+        .pricing-section .pricing-card .btn {
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-section .pricing-card.popular .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .pricing-section .pricing-card:not(.popular) .btn {
+            background-color: white;
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+
+        .pricing-section .pricing-card:not(.popular) .btn:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 5rem 0;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .faq-section p a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .faq-section p a:hover {
+            color: var(--primary-color);
+        }
+
+        .accordion-item {
+            background-color: transparent !important;
+            border: none !important;
+            margin-bottom: 1rem;
+            border-radius: 10px !important;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-item:nth-child(2),
+        .accordion-item:nth-child(3),
+        .accordion-item:nth-child(4) {
+            background-color: var(--light-grey) !important;
+        }
+
+        .accordion-button {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: var(--text-dark) !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            padding: 1.5rem 1.25rem !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-color) !important; /* Active accordion header color */
+        }
+
+        .accordion-body {
+            color: #495057 !important;
+            font-size: 0.95rem !important;
+            padding: 0 1.25rem 1.5rem !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 4rem 0;
+        }
+
+        .footer .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .footer p {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer .social-icons a {
+            color: var(--light-grey);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer h5 {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer .footer-links li a {
+            color: var(--muted-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .footer .footer-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer .newsletter-form .form-control {
+            background-color: #3A3C56;
+            border: 1px solid #5A5E7A;
+            color: var(--text-light);
+            border-radius: 5px;
+            padding: 0.75rem 1rem;
+        }
+
+        .footer .newsletter-form .form-control::placeholder {
+            color: var(--muted-text);
+        }
+
+        .footer .newsletter-form .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 5px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer .copyright {
+            border-top: 1px solid #3A3C56;
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            color: var(--muted-text);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .hero {
+                padding-top: 8rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .navbar-collapse {
+                background-color: var(--secondary-color);
+                padding: 1rem;
+                margin-top: 0.5rem;
+                border-radius: 10px;
+            }
+            .navbar .btn-outline-secondary {
+                margin-left: 0 !important;
+                margin-top: 1rem;
+                width: 100%;
+            }
+            .about-section img {
+                margin-top: 2rem !important;
+                margin-right: 0 !important;
+            }
+            .stats-section .col-md-4 {
+                border-right: none;
+                border-bottom: 1px solid var(--light-grey);
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .stats-section .col-md-4:last-child {
+                border-bottom: none;
+            }
+            .how-we-work-section .step-number {
+                font-size: 4rem;
+                margin-right: 1rem;
+            }
+            .cta-section .cta-icon {
+                position: static;
+                margin-bottom: 1rem;
+            }
+            .cta-section .graph-img,
+            .cta-section .girl-img {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 2rem;
+            }
+            .cta-section h2,
+            .cta-section .btn-primary {
+                margin-left: 0;
+            }
+            .pricing-section .pricing-card.popular {
+                top: 0;
+                height: auto;
+            }
+            .pricing-section .col-md-4 {
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .blue-box {
+                margin-top: 3rem;
+            }
+            .about-section h2 {
+                font-size: 2.5rem;
+            }
+            .how-we-work-section .step-number {
+                font-size: 3rem;
+            }
+            .portfolio-item img {
+                height: 300px;
+            }
+            .cta-section .cta-card {
+                padding: 2rem;
+            }
+        }
+        /* Base styles from your HTML inline styles */
+        
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    div[style*="width: 400px;"] {
+        width: 350px !important;
+        margin-left: 50px !important;
+        padding: 30px !important;
+    }
+    img[alt="Location Symbol"] {
+        margin-left: 400px !important;
+        width: 25px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    div[style*="background-image"] {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 30px 20px !important;
+    }
+    div[style*="width: 400px;"] {
+        margin-left: 0 !important;
+        width: 90% !important;
+        max-width: 400px !important;
+        padding: 30px 20px !important;
+    }
+    img[alt="Location Symbol"] {
+        margin-left: 0 !important;
+        position: relative !important;
+        
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 35px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    div[style*="width: 400px;"] h2 {
+        font-size: 20px !important;
+    }
+    div[style*="width: 400px;"] input,
+    div[style*="width: 400px;"] select,
+    div[style*="width: 400px;"] textarea {
+        font-size: 0.85rem !important;
+    }
+    img[alt="Location Symbol"] {
+        bottom: 10% !important;
+        width: 30px !important;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#"><img src="logo.png" alt="Agency Logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#services">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pricing">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#blog">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary" href="#contact">Contact</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </nav>
+
+            <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="text-uppercase mb-2" style="color: #EF6D58;">ABOUT</p>
-                    <h1 class="display-4 fw-bold text-primary-dark mb-3" style="color: #391400;">An Experience<br>Design Agency</h1>
-                    <p class="lead mb-4" style="color: #391400;">Provides a full service range</p>
-                    <p class="mb-4" style="font-size: 0.9rem; color: #391400;">Ability to put themselves in the merchant's shoes. It is meant to partner on the long run, and work as an extension of the merchant's team.</p>
-                    <a href="#" class="btn btn-outline-secondary rounded-pill px-4 py-2">ABOUT US</a>
+                    <span class="text-uppercase text-primary-brand fw-bold d-block mb-3">MODERN STUDIO</span>
+                    <h1>We're Help<br>To Build Your<br>Dream Project</h1>
+                    <p class="lead text-muted mb-4">Agency provides a full service range including technical skills, design, business understanding.</p>
+                    <div class="d-flex mb-5">
+                        <a href="#" class="btn btn-primary me-3">HOW WE WORK</a>
+                        <a href="#contact" class="btn btn-outline-secondary">Contact Us</a>
+                    </div>
+                    <div class="testimonial">
+                        <img src="Bitmap.png" alt="Client Avatar">
+                        <div>
+                            <p class="text-muted mb-0">"Put themselves in the merchant's shoes"</p>
+                            <span>Meta Inc.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end mt-4 mt-md-0">
+                    <div class="blue-box">
+                        <img src="image1.png" alt="Smiling Woman">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <hr class="d-none"> 
+    <section class="section-light logos-section py-5">
+        <div class="container">
+            <img src="logo2.png" alt="Company Logos" class="img-fluid" style="width: 1170px; height: 47px;">
+            <hr>
+        </div>
+    </section>
+
+    <section id="about" class="section-light about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="image-area position-relative me-0 me-md-5">
+                        <img src="image2.png" alt="Profile" class="img-fluid mt-5 mt-md-0">
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <p class="text-uppercase mb-2 text-primary-brand">ABOUT</p>
+                    <h2 class="text-dark-brand">An Experience<br>Design Agency</h2>
+                    <p class="lead text-dark-brand mb-4">Provides a full service range</p>
+                    <p class="mb-4">Ability to put themselves in the merchant's shoes. It is meant to partner on the long run, and work as an extension of the merchant's team.</p>
+                    <a href="#" class="btn btn-outline-secondary">ABOUT US</a>
                 </div>
             </div>
         </div>
     </section>
-    
 
-
-   <section class="py-5" style="background-color: #FDF0E9;">
-     <div class="container">
-         <div class="row text-center py-6" style="border: 1px solid #F3D1BF; border-radius: 5px;">
-             <div class="col-md-4 py-3" style="border-right: 1px solid #F3D1BF ;">
-                 <div style="font-size: 2.5rem; color: #391400; font-weight: bold;">42%</div>
-                 <p style="color: #495057; font-size: 0.9rem;">Years of experience</p>
-             </div>
-             <div class="col-md-4 py-3" style="border-right: 1px solid #F3D1BF;">
-                 <div style="font-size: 2.5rem; color: #391400; font-weight: bold;">73+</div>
-                 <p style="color: #495057; font-size: 0.9rem;">Agency members</p>
-             </div>
-             <div class="col-md-4 py-3">
-                 <div style="font-size: 2.5rem; color: #391400; font-weight: bold;">5.000</div>
-                 <p style="color: #495057; font-size: 0.9rem;">Projects complete</p>
-             </div>
-         </div>
-
-         <div class="row py-5 align-items-center" style="margin-left: 6rem; margin-top: 4rem;">
-             <div class="col-md-6">
-                 <p class="text-uppercase mb-2" style="color: #EF6D58; font-size: 0.8rem;">HOW WE WORK</p>
-                 <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;">Making Your Projects<br>Look Awesome</h2>
-                 <p style="color: #495057; font-size: 0.9rem;">Technical skills, design, business understanding, ability to <br>put themselves in the merchant's shoes.</p>
-                 <p><a href="#" style="color: #391400; font-size: 0.9rem;text-decoration: none;">Read More</a></p>
-             </div>
-             <div class="col-md-6">
-                 <div class="d-flex align-items-center mb-3">
-                     <div style="font-size: 4rem; color: #391400; font-weight: bold; margin-right: 1rem;">1</div>
-                     <p style="color: #495057; font-size: 0.9rem;">Full service range including</p>
-                 </div>
-                 <div class="d-flex align-items-center mb-3">
-                     <div style="font-size: 4rem; color: #391400; font-weight: bold; margin-right: 1rem;">2</div>
-                     <p style="color: #495057; font-size: 0.9rem;">Technical skills, design, business</p>
-                 </div>
-                 <div class="d-flex align-items-center mb-3">
-                     <div style="font-size: 4rem; color: #391400; font-weight: bold; margin-right: 1rem;">3</div>
-                     <p style="color: #495057; font-size: 0.9rem;">Themselves in the merchant's</p>
-                 </div>
-             </div>
-         </div>
-   
-     </div>
-     <div class="container">
-     <hr style="width: 1170px; height: 1px; color: #391400; margin-top: rem;"></div>
- </section>
-
- <section class="py-5" style="background-color: #FDF0E9;">
-    <div class="container">
-     <div class="row align-items-center justify-content-between">
-      <div class="col-md-6">
-       <div class="position-relative" style="max-width: 500px; border-radius: 10px; overflow: hidden;">
-        <img src="Bitmap1.png" alt="Video Reel Preview" class="img-fluid" style="width: 100%; height: auto;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.7); border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; cursor: pointer;">
-         <div style="border-left: 20px solid #391400; border-top: 10px solid transparent; border-bottom: 10px solid transparent;"></div>
-        </div>
-        <div style="position: absolute; bottom: 10px; left: 10px; background-color: rgba(0, 0, 0, 0.6); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">1:45</div>
-       </div>
-      </div>
-      <div class="col-md-5">
-       <p class="text-uppercase mb-2" style="color: #EF6D58; font-size: 0.8rem;">VIDEO REEL</p>
-       <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;">Unlock The Greatest<br class="d-none d-lg-inline">Value Possible</h2>
-       <p style="color: #495057; font-size: 0.9rem;">Design, business understanding, ability to put themselves<br class="d-none d-lg-inline">in the merchant's shoes meant to partner.</p>
-      </div>
-     </div>
-    </div>
-   </section>
-
-
-   <section class="py-5" style="background-color: #28293E;">
-    <div class="container">
-     <div class="row justify-content-center text-center">
-      <div class="col-md-8">
-       <p class="text-uppercase mb-1" style="color: #F3D1BF; font-size: 0.8rem;">PORTFOLIO</p>
-       <h2 class="fw-bold mb-4" style="color: #FDF0E9; font-size: 2.5rem;">Latest Work</h2>
-       <ul class="list-inline mb-5">
-        <li class="list-inline-item"><a href="#" style="color: #FDF0E9; font-size: 0.9rem; text-decoration: none;">Show All</a> <span style="color: #FDF0E9; font-size: 0.7rem;">16</span></li>
-        <li class="list-inline-item ms-4"><a href="#" style="color: #F3D1BF; font-size: 0.9rem; text-decoration: none;">Design</a> <span style="color: #F3D1BF; font-size: 0.7rem;">4</span></li>
-        <li class="list-inline-item ms-4"><a href="#" style="color: #F3D1BF; font-size: 0.9rem; text-decoration: none;">Branding</a> <span style="color: #F3D1BF; font-size: 0.7rem;">6</span></li>
-        <li class="list-inline-item ms-4"><a href="#" style="color: #F3D1BF; font-size: 0.9rem; text-decoration: none;">Illustration</a> <span style="color: #F3D1BF; font-size: 0.7rem;">3</span></li>
-        <li class="list-inline-item ms-4"><a href="#" style="color: #F3D1BF; font-size: 0.9rem; text-decoration: none;">Motion</a> <span style="color: #F3D1BF; font-size: 0.7rem;">1</span></li>
-       </ul>
-      </div>
-     </div>
-     <div class="row">
-      <div class="col-md-6 mb-4">
-       <div class="position-relative overflow-hidden rounded" >
-        <img src="Bitmap (2).png" alt="Sofa Design" class="img-fluid" style="opacity: 0.7;width: 470px;height: 416px;">
-        <div class="position-absolute top-0 start-0 p-2">
-         <p class="mb-0 rounded-pill px-2 py-1" style="color: #2C3E50; background-color: #F3D1BF; font-size: 0.7rem; display: inline-block;">Design</p>
-        </div>
-        <div class="position-absolute bottom-0 start-0 p-3">
-         <h3 class="fw-bold mb-0" style="color: #FDF0E9; font-size: 1.5rem;">SOFA</h3>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-6 mb-4">
-       <div class="position-relative overflow-hidden rounded" >
-        <img src="Bitmap (3).png" alt="Keyboard Branding" class="img-fluid" style="opacity: 0.7; width: 670;height: 416px;">
-        <div class="position-absolute top-0 start-0 p-2">
-         <p class="mb-0 rounded-pill px-2 py-1" style="color: #2C3E50; background-color: #F3D1BF; font-size: 0.7rem; display: inline-block;">Branding</p>
-        </div>
-        <div class="position-absolute bottom-0 start-0 p-3">
-         <h3 class="fw-bold mb-0" style="color: #FDF0E9; font-size: 1.5rem;">KeyBoard</h3>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-6 mb-4">
-       <div class="position-relative overflow-hidden rounded" >
-        <img src="Bitmap (4).png" alt="Work Media Illustration" class="img-fluid" style="opacity: 0.7; width:670px;height: 416px; ">
-        <div class="position-absolute top-0 start-0 p-2">
-         <p class="mb-0 rounded-pill px-2 py-1" style="color: #2C3E50; background-color: #F3D1BF; font-size: 0.7rem; display: inline-block;">Illustration</p>
-        </div>
-        <div class="position-absolute bottom-0 start-0 p-3">
-         <h3 class="fw-bold mb-0" style="color: #FDF0E9; font-size: 1.5rem;">Work Media</h3>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-6 mb-4">
-       <div class="position-relative overflow-hidden rounded">
-        <img src="Bitmap (5).png" alt="DDD Motion" class="img-fluid" style="opacity: 0.7; width: 470px;height: 416px;">
-        <div class="position-absolute top-0 start-0 p-2">
-         <p class="mb-0 rounded-pill px-2 py-1" style="color: #2C3E50; background-color: #F3D1BF; font-size: 0.7rem; display: inline-block;">Motion</p>
-        </div>
-        <div class="position-absolute bottom-0 start-0 p-3">
-         <h3 class="fw-bold mb-0" style="color: #FDF0E9; font-size: 1.5rem;">DDDOne</h3>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="row justify-content-center mt-4">
-      <div class="col-md-3">
-       <button class="btn btn-outline-secondary px-4 py-2" style="border-color: #F3D1BF; color: #FDF0E9; font-size: 0.9rem; font-weight: 700;">EXPLORE MORE</button>
-      </div>
-     </div>
-    </div>
-   </section>
-
-   <section class="py-5" style="background-color: #28293E">
-    <div class="container">
-     <div class="row align-items-center rounded p-md-1 p-3" style="background-color: #FDF0E9;">
-      <div class="col-md-4 position-relative">
-       <div style="position: absolute; top: -20px; left: 10px;">
-        <img src="icon.png" alt="Gift Icon" style="width: 148px; height:148px; margin-top: -110px; margin-left: 40px;">
-       </div>
-       <p class="mt-4 text-uppercase" style="color: #EF6D58; font-size: 0.8rem; margin-left: 60px; margin-right: -20px;">GET STARTED</p>
-       <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;margin-left: 60px; margin-right: -20px;">We Help Companies<br>Move Faster</h2>
-       <button class="btn btn-primary rounded-pill px-4 py-2" style="margin-left: 60px; margin-right: -20px;background-color: #EF6D58; border-color: #EF6D58; font-size: 0.9rem;">CONTACT US</button>
-      </div>
-      <div class="col-md-4 d-flex justify-content-center">
-       <img src="block.png" alt="Graph Image" class="img-fluid" style="max-width: 338px; height: 192px;">
-      </div>
-      <div class="col-md-4 d-flex justify-content-end">
-       <img src="Bitmap (6).png" alt="Smiling Girl" class="img-fluid rounded" style="max-width: 239px; height: 396px;margin-top: -120px;">
-      </div>
-     </div>
-    </div>
-   </section>
-
-   <section class="py-5" style="background-color: #28293E">
-    <div class="container">
-        <div class="py-5" style="background-color: #28293E">
-            <div class="container">
-             <div class="row align-items-center justify-content-between">
-              <div class="col-md-6">
-               <p class="text-uppercase mb-1" style="color: #EF6D58; font-size: 0.8rem;">OUR TEAM</p>
-               <h2 class="fw-bold mb-0" style="color: #FDF0E9; font-size: 2.5rem;">Team of Designers<br>and Developers</h2>
-              </div>
-              <div class="col-md-auto">
-               <div class="d-flex">
-                <button class="btn btn-outline-secondary rounded-circle me-2" style="width: 40px; height: 40px; border-width: 1px; color: #FDF0E9; opacity: 0.5;">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z"/>
-                 </svg>
-                </button>
-                <button class="btn btn-outline-secondary rounded-circle" style="width: 40px; height: 40px; border-width: 1px; color: #FDF0E9;">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.146-3.147a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5a.5.5 0 0 1-.5-.5z"/>
-                 </svg>
-                </button>
-               </div>
-              </div>
-             </div>
+    <section class="section-light stats-section py-5">
+        <div class="container">
+            <div class="row text-center py-4">
+                <div class="col-md-4 py-3">
+                    <div>42%</div>
+                    <p>Years of experience</p>
+                </div>
+                <div class="col-md-4 py-3">
+                    <div>73+</div>
+                    <p>Agency members</p>
+                </div>
+                <div class="col-md-4 py-3">
+                    <div>5.000</div>
+                    <p>Projects complete</p>
+                </div>
             </div>
-           </div>
-     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-      <div class="col">
-       <div class="rounded overflow-hidden" >
-        <img src="Bitmap (7).png" alt="Azah Anyeni" class="img-fluid" style="opacity: 0.7; width: 196px; height: 247px;border: 1px solid #3A3C56 ;">
-        <div class="p-3 text-center">
-         <h6 class="fw-bold mb-0" style="color: #FDF0E9;">Azah Anyeni</h6>
-         <p class="mb-0" style="color: #F3D1BF; font-size: 0.8rem;">Designer</p>
-        </div>
-       </div>
-      </div>
-      <div class="col">
-       <div class="rounded overflow-hidden">
-        <img src="Bitmap (8).png" alt="Roelof Bekkenenks" class="img-fluid" style="opacity: 0.7; width: 259px; height: 232px;border: 1px solid #3A3C56 ;">
-        <div class="p-3 text-center">
-         <h6 class="fw-bold mb-0" style="color: #FDF0E9;">Roelof Bekkenenks</h6>
-         <p class="mb-0" style="color: #F3D1BF; font-size: 0.8rem;">React Developer</p>
-        </div>
-       </div>
-      </div>
-      <div class="col">
-       <div class=" rounded overflow-hidden">
-        <img src="Bitmap (9).png" alt="Leonardo Oliveira" class="img-fluid" style="opacity: 0.7; width: 205px; height: 238px;border: 1px solid #3A3C56 ;">
-        <div class="p-3 text-center">
-         <h6 class="fw-bold mb-0" style="color: #FDF0E9;">Leonardo Oliveira</h6>
-         <p class="mb-0" style="color: #F3D1BF; font-size: 0.8rem;">Illustrator</p>
-        </div>
-       </div>
-      </div>
-      <div class="col">
-       <div class="rounded overflow-hidden">
-        <img src="Bitmap (10).png" alt="Izabella Tabakova" class="img-fluid" style="opacity: 0.7; width:230px; height: 233px;border: 1px solid #3A3C56 ;">
-        <div class="p-3 text-center">
-         <h6 class="fw-bold mb-0" style="color: #FDF0E9;">Izabella Tabakova</h6>
-         <p class="mb-0" style="color: #F3D1BF; font-size: 0.8rem;">Product Designer</p>
-        </div>
-       </div>
-      </div>
-      
-     </div>
-     <div class="row justify-content-center mt-3">
-        <div class="col-auto">
-         <div class="d-flex align-items-center">
-          <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-          <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #6C757D;"></span>
-          <span class="rounded-circle" style="width: 8px; height: 8px; background-color: #6C757D;"></span>
-         </div>
-        </div>
-       </div>
-    </div>
-   </section>
 
-   <div class="py-5" style="background-color: #FDF0E9;">
-    <div class="container">
-     <div class="row justify-content-start text-left">
-      <div class="col-md-8">
-       <p class="text-uppercase mb-2" style="color: #EF6D58; font-size: 1rem;">PRICING</p>
-       <h2 class="fw-bold mb-0" style="color: #391400; font-size: 3rem;">Check Our<br>Pricing Plans</h2>
-      </div>
-     </div>
-    </div>
-   </div>
+            <div class="row py-5 align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <p class="text-uppercase mb-2 text-primary-brand">HOW WE WORK</p>
+                    <h2 class="text-dark-brand">Making Your Projects<br>Look Awesome</h2>
+                    <p style="color: #391400A3; margin-top: 2px; margin-bottom: 5px;">Technical skills, design, business understanding, ability to <br>put themselves in the merchant's shoes.</p>
+                    <p><a href="#" style="color: #391400;text-decoration: none;">Read More</a></p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="step-number">1</div>
+                        <p class="mb-0" style="margin-left: 25px; color:#391400;">Full service range including</p>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="step-number">2</div>
+                        <p class="mb-0" style="margin-left: 20px; color:#391400;">Technical skills, design, business</p>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="step-number" >3</div>
+                        <p class="mb-0" style="margin-left: 20px; color:#391400;"  >Themselves in the merchant's</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-dark-brand opacity-100">
+        </div>
+    </section>
 
-   <div class="py-5" style="background-color: #FDF0E9;">
-    <div class="container">
-     <div class="row justify-content-center g-4">
-      <div class="col-md-4" style="margin-right: -25px;">
-       <div class="card border-0 rounded-3 shadow-sm text-left p-4" style="height: 550px; background-color: #FDF0E9;">
-        <div class="card-body d-flex flex-column justify-content-between h-100">
-         <div>
-          <h6 class="text-uppercase mb-2" style="color: #EF6D58; font-size: 0.8rem;">CONSULTATION</h6>
-          <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;">Free</h2>
-          <p class="mb-3" style="color: #391400; font-size: 0.9rem; line-height: 2.3; ">Your digital marketing efforts,<br> instead of handling in-house.</p>
-          <ul class="list-unstyled mb-4">
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #391400; font-size: 0.9rem; line-height: 3rem;">Brand Design</span>
-           </li>
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #F3D1BF;"></span>
-            <span style="color: #391400; font-size: 0.9rem;line-height: 3rem">Market Analysis</span>
-           </li>
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #F3D1BF;"></span>
-            <span style="color: #391400; font-size: 0.9rem;line-height: 3rem">Production</span>
-           </li>
-          </ul>
-         </div>
-         <button class="btn px-4 py-2" style=" background-color: #ffffff; border-color: #391400; font-size: 0.9rem;color: #391400; font-weight: 800; ">CONTACT US</button>
+    <section class="section-light video-reel-section py-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="video-wrapper">
+                        <img src="Bitmap1.png" alt="Video Reel Preview" class="img-fluid">
+                        <div class="play-button" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                            </svg>
+                        </div>
+                        <div class="video-duration">1:45</div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <p class="text-uppercase mb-2 text-primary-brand">VIDEO REEL</p>
+                    <h2 class="text-dark-brand">Unlock The Greatest<br class="d-none d-lg-inline">Value Possible</h2>
+                    <p>Design, business understanding, ability to put themselves<br class="d-none d-lg-inline">in the merchant's shoes meant to partner.</p>
+                </div>
+            </div>
         </div>
-       </div>
-      </div>
-     
-     
-      <div class="col-md-4"  >
-       <div class="card border-0 rounded-3 shadow-lg text-left p-4 position-relative" style="background-color: #ffffff; height: 580px;">
-        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger text-white" style="z-index: 1; transform: translate(-50%, -10px) !important;">Popular</span>
-        <div class="card-body d-flex flex-column justify-content-between h-100">
-         <div>
-          <h6 class="text-uppercase mb-2" style="color: #EF6D58; font-size: 0.8rem;">DESIGN</h6>
-          <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;">$1500</h2>
-          <p class="mb-3" style="color: #495057; font-size: 0.9rem; line-height: 2.3;">Provide your business with a variety of digital solutions to promote.</p>
-          <ul class="list-unstyled mb-4">
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #495057; font-size: 0.9rem;line-height: 3rem">Brand Design</span>
-           </li>
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #495057; font-size: 0.9rem;line-height: 3rem;">Market Analysis</span>
-           </li>
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #495057; font-size: 0.9rem;line-height: 3rem;">Production</span>
-           </li>
-          </ul>
-         </div>
-         <button class="btn btn-primary px-4 py-2" style="background-color: #EF6D58; border-color: #EF6D58; font-size: 0.9rem;">CONTACT US</button>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-4"style="margin-left: -24px;">
-       <div class="card border-0 rounded-3 shadow-sm text-left p-4" style="height: 550px;background-color: #FDF0E9;">
-        <div class="card-body d-flex flex-column justify-content-between h-100">
-         <div>
-          <h6 class="text-uppercase mb-2" style="color: #EF6D58; font-size: 0.8rem;">DESIGN - CODE</h6>
-          <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;">$2900</h2>
-          <p class="mb-3" style="color: #495057; font-size: 0.9rem; line-height: 1.5;line-height: 2.3;">Help you hit your marketing goals and grow your business.</p>
-          <ul class="list-unstyled mb-4">
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #495057; font-size: 0.9rem;line-height: 3rem;">Brand Design</span>
-           </li>
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #495057; font-size: 0.9rem;line-height: 3rem;">Market Analysis</span>
-           </li>
-           <li class="d-flex align-items-center mb-2">
-            <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #EF6D58;"></span>
-            <span style="color: #495057; font-size: 0.9rem;line-height: 3rem;">Production</span>
-           </li>
-          </ul>
-         </div>
-         <button class="btn px-4 py-2" style=" background-color: #ffffff; border-color: #391400; font-size: 0.9rem;color: #391400; font-weight: 800; ">CONTACT US</button>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
+    </section>
 
-   <div class="py-5" style="background-color: #FDF0E9;">
-    <div class="container">
-     <div class="row">
-      <div class="col-md-6">
-       <p class="text-uppercase mb-2" style="color: #EF6D58; font-size: 0.8rem;">FAQ</p>
-       <h2 class="fw-bold mb-3" style="color: #391400; font-size: 2rem;">Frequently Asked<br>Questions</h2>
-       <p style="color: #495057; font-size: 0.9rem;">A digital agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
-       <a href="#" style="color: #391400; font-size: 0.9rem; text-decoration: none;">Contact Us</a>
-      </div>
-      <div class="col-md-6">
-       <div class="accordion" id="faqAccordion">
-        <div class="accordion-item border-0 mb-3">
-         <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button bg-transparent shadow-none rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #391400; font-size: 1rem; font-weight: bold;">
-           A digital agency is a business
-           
-          </button>
-         </h2>
-         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-          <div class="accordion-body pt-0" style="color: #495057; font-size: 0.9rem; line-height: 1.5;">
-           Digital marketing efforts, instead of handling in-house. They can provide your business with a variety of digital solutions to promote your product or service online and help you hit your marketing goals and grow your business.
-          </div>
-         </div>
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="accordion-item border-0 mb-3"style="background-color: #F3D1BF;">
-         <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button bg-transparent shadow-none rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #391400; font-size: 1rem; font-weight: bold;">
-           Hire to outsource your digital
-           
-          </button>
-         </h2>
-         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-          <div class="accordion-body pt-0" style="color: #495057; font-size: 0.9rem; line-height: 1.5;">
-           Content for the second question goes here.
-          </div>
-         </div>
-        </div>
-        <div class="accordion-item border-0 mb-3" style="background-color: #F3D1BF;"> 
-         <h2 class="accordion-header" id="headingThree">
-          <button class="accordion-button bg-transparent shadow-none rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #391400; font-size: 1rem; font-weight: bold;">
-           <span style=" color: #391400; padding: 5px 10px; border-radius: 5px;">Marketing efforts</span>
-         
-          </button>
-         </h2>
-         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-          <div class="accordion-body pt-0" style="color: #495057; font-size: 0.9rem; line-height: 1.5;">
-           Content for the third question goes here.
-          </div>
-         </div>
-        </div>
-        <div class="accordion-item border-0 mb-3" style="background-color: #F3D1BF;">
-         <h2 class="accordion-header" id="headingFour">
-          <button class="accordion-button bg-transparent shadow-none rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color: #391400; font-size: 1rem; font-weight: bold;">
-           Can provide your business
-          
-          </button>
-         </h2>
-         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-          <div class="accordion-body pt-0" style="color: #495057; font-size: 0.9rem; line-height: 1.5;">
-           Content for the fourth question goes here.
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
     </div>
-   </div>
 
-  <div style="background-image: url('map.png'); background-size: cover; background-position: center; padding: 50px 0; display: flex; justify-content: flex-start; align-items: center; min-height: 100vh;">
+
+    <section id="services" class="section-dark portfolio-section py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8">
+                    <p class="text-uppercase mb-1 text-primary-brand">PORTFOLIO</p>
+                    <h2 class="text-light">Latest Work</h2>
+                    <ul class="list-inline mb-5 mt-4">
+                        <li class="list-inline-item"><a href="#" class="active" data-filter="all">Show All <span class="count">16</span></a></li>
+                        <li class="list-inline-item ms-4"><a href="#" data-filter="design">Design <span class="count">4</span></a></li>
+                        <li class="list-inline-item ms-4"><a href="#" data-filter="branding">Branding <span class="count">6</span></a></li>
+                        <li class="list-inline-item ms-4"><a href="#" data-filter="illustration">Illustration <span class="count">3</span></a></li>
+                        <li class="list-inline-item ms-4"><a href="#" data-filter="motion">Motion <span class="count">1</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row portfolio-grid">
+                <div class="col-md-6 mb-4 filter-item branding design">
+                    <div class="portfolio-item">
+                        <img src="Bitmap (2).png" alt="Sofa Design" class="img-fluid">
+                        <div class="category-tag">Design</div>
+                        <h3 class="project-title">SOFA</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 filter-item branding">
+                    <div class="portfolio-item">
+                        <img src="Bitmap (3).png" alt="Keyboard Branding" class="img-fluid">
+                        <div class="category-tag">Branding</div>
+                        <h3 class="project-title">KeyBoard</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 filter-item illustration">
+                    <div class="portfolio-item">
+                        <img src="Bitmap (4).png" alt="Work Media Illustration" class="img-fluid">
+                        <div class="category-tag">Illustration</div>
+                        <h3 class="project-title">Work Media</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 filter-item motion">
+                    <div class="portfolio-item">
+                        <img src="Bitmap (5).png" alt="DDD Motion" class="img-fluid">
+                        <div class="category-tag">Motion</div>
+                        <h3 class="project-title">DDDOne</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-auto">
+                    <button class="btn btn-outline-secondary">EXPLORE MORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark cta-section py-5">
+        <div class="container">
+            <div class="row align-items-center rounded p-md-5 p-3 cta-card">
+                <div class="col-md-6">
+                    <img src="icon.png" alt="Gift Icon" class="cta-icon" style="margin-left: 8%;">
+                    <p class=" text-uppercase text-primary-brand fw-bold" style="margin-left: 20%;margin-top: 15%;">GET STARTED</p>
+                    <h3 class="text-dark-brand" style="margin-left: 20% ; font-weight: 700;" >We Help Companies <br>Move Faster</h3>
+                    <button class="btn btn-primary mt-3">CONTACT US</button>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center">
+                    <img src="block.png" alt="Graph Image" class="img-fluid graph-img d-none d-md-block">
+                    <img src="Bitmap (6).png" alt="Smiling Girl" class="img-fluid girl-img d-none d-md-block">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark team-section py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <div>
+                    <p class="text-uppercase mb-1 text-primary-brand">OUR TEAM</p>
+                    <h2 class="text-light">Team of Designers<br>and Developers</h2>
+                </div>
+                <div class="arrow-buttons">
+                    <button class="btn btn-outline-secondary rounded-circle me-2" id="prevTeam">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5a.5.5 0 0 0 .5-.5z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-outline-secondary rounded-circle" id="nextTeam">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.146-3.147a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 team-carousel">
+                <div class="col team-slide">
+                    <div class="team-member-card">
+                        <img src="Bitmap (7).png" alt="Azah Anyeni">
+                        <div class="p-3">
+                            <h6>Azah Anyeni</h6>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col team-slide">
+                    <div class="team-member-card">
+                        <img src="Bitmap (8).png" alt="Roelof Bekkenenks">
+                        <div class="p-3">
+                            <h6>Roelof Bekkenenks</h6>
+                            <p>React Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col team-slide">
+                    <div class="team-member-card">
+                        <img src="Bitmap (9).png" alt="Leonardo Oliveira">
+                        <div class="p-3">
+                            <h6>Leonardo Oliveira</h6>
+                            <p>Illustrator</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col team-slide">
+                    <div class="team-member-card">
+                        <img src="Bitmap (10).png" alt="Izabella Tabakova">
+                        <div class="p-3">
+                            <h6>Izabella Tabakova</h6>
+                            <p>Product Designer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-auto">
+                    <div class="d-flex align-items-center carousel-indicators-custom">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-light pricing-section py-5">
+        <div class="container">
+            <div class="row justify-content-start text-left mb-5">
+                <div class="col-md-8">
+                    <p class="text-uppercase mb-2 text-primary-brand">PRICING</p>
+                    <h2 class="text-dark-brand">Check Our<br>Pricing Plans</h2>
+                </div>
+            </div>
+
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 rounded-3 shadow-sm pricing-card">
+                        <div>
+                            <h6 class="text-uppercase mb-2">CONSULTATION</h6>
+                            <h2 class="fw-bold mb-3">$0</h2>
+                            <p class="mb-3">Your digital marketing efforts, instead of handling in-house.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Brand Design</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle faded"></span>
+                                    <span>Market Analysis</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle faded"></span>
+                                    <span>Production</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn" >CONTACT US</button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 rounded-3 shadow-lg pricing-card popular">
+                        <span class="position-absolute badge rounded-pill bg-danger" style="top: -15px; left: 50%; transform: translateX(-50%);">Popular</span>
+                        <div>
+                            <h6 class="text-uppercase mb-2">DESIGN</h6>
+                            <h2 class="fw-bold mb-3">$1500</h2>
+                            <p class="mb-3">Provide your business with a variety of digital solutions to promote.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Brand Design</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Market Analysis</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Production</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary" >CONTACT US</button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 rounded-3 shadow-sm pricing-card">
+                        <div>
+                            <h6 class="text-uppercase mb-2">DESIGN - CODE</h6>
+                            <h2 class="fw-bold mb-3">$2900</h2>
+                            <p class="mb-3">Help you hit your marketing goals and grow your business.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Brand Design</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Market Analysis</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <span class="icon-circle"></span>
+                                    <span>Production</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn">CONTACT US</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-light faq-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-uppercase mb-2 text-primary-brand">FAQ</p>
+                    <h2 class="text-dark-brand">Frequently Asked<br>Questions</h2>
+                    <p>A digital agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
+                    <a href="#contact" style="color: #391400; text-decoration: none;">Contact Us</a>
+                </div>
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <div class="accordion" id="faqAccordion" style="background-color: white;">
+                        <div class="accordion-item" >
+                            <h2 class="accordion-header" id="headingOne">
+                                <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    A digital agency is a business
+                                </div>
+                            </h2>
+                            
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Digital marketing efforts, instead of handling in-house. They can provide your business with a variety of digital solutions to promote your product or service online and help you hit your marketing goals and grow your business.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Hire to outsource your digital
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Outsourcing your digital marketing allows you to leverage specialized expertise and resources without the overhead of an in-house team. This can lead to more efficient and effective campaigns.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Marketing efforts
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our marketing efforts include SEO, content marketing, social media management, paid advertising, and email marketing, all tailored to your business needs.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Promote your product or service
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We utilize a multi-channel approach to promote your products and services, ensuring maximum reach and engagement with your target audience.
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="background-image: url('map.png'); background-size: cover; background-position: center; padding: 50px 0; display: flex; justify-content: flex-start; align-items: center; min-height: 100vh;">
   
-    <div style="background-color: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 400px; position: relative; margin-left: 100px;">
-        <img src="pin.png" alt="Location Symbol" style=" margin-top: 10px; margin-left: 600px; width: 30px; height: auto;">
-      <h2 style="color: #391400; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Get In Touch</h2>
-      <form>
-        <div style="margin-bottom: 20px;">
-          <label for="email" style="display: block; margin-bottom: 5px; color: #495057; font-size: 0.9rem;">Your email</label>
-          <input type="email" id="email" name="email" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; font-size: 0.9rem;" required>
+        <div style="background-color: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 400px; position: relative; margin-left: 100px;">
+            <img src="pin.png" alt="Location Symbol" style=" margin-top: 10px; margin-left: 600px; width: 30px; height: auto;">
+          <h2 style="color: #391400; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Get In Touch</h2>
+          <form>
+            <div style="margin-bottom: 20px;">
+              <label for="email" style="display: block; margin-bottom: 5px; color: #495057; font-size: 0.9rem;">Your email</label>
+              <input type="email" id="email" name="email" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; font-size: 0.9rem;" required>
+            </div>
+            <div style="margin-bottom: 20px;">
+              <label for="subject" style="display: block; margin-bottom: 5px; color: #495057; font-size: 0.9rem;">Subject</label>
+              <select id="subject" name="subject" class="form-select" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; font-size: 0.9rem;">
+                  <option value="" disabled selected>Select Subject</option>
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                  <option value="option3">Option 3</option>
+              </select>
+            </div>
+            <div style="margin-bottom: 20px;">
+              <label for="message" style="display: block; margin-bottom: 5px; color: #495057; font-size: 0.9rem;">Message</label>
+              <textarea id="message" name="message" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; font-size: 0.9rem; height: 100px;"></textarea>
+            </div>
+            <button type="submit" style="background-color: #EF6D58; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; cursor: pointer;">SUBMIT NOW</button>
+        </form>
+            
         </div>
-        <div style="margin-bottom: 20px;">
-          <label for="subject" style="display: block; margin-bottom: 5px; color: #495057; font-size: 0.9rem;">Subject</label>
-          <select id="subject" name="subject" class="form-select" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; font-size: 0.9rem;">
-              <option value="" disabled selected>Select Subject</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-          </select>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <label for="message" style="display: block; margin-bottom: 5px; color: #495057; font-size: 0.9rem;">Message</label>
-          <textarea id="message" name="message" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 5px; font-size: 0.9rem; height: 100px;"></textarea>
-        </div>
-        <button type="submit" style="background-color: #EF6D58; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; cursor: pointer;">SUBMIT NOW</button>
-    </form>
-        
     </div>
-    
-  </div>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <footer style="background-color: #F8F0FB; padding: 20px 0;">
-    <div class="container">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-md-3 text-start" style="color: #391400; font-size: 1.4rem;font-weight: 800;">
-          Agency
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <a class="footer-brand mb-3 d-block" href="#">Agency</a>
+                    <p>Agency provides a full service range including technical skills, design, business understanding.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 col-6 mb-4 mb-md-0">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-6 mb-4 mb-md-0">
+                    <h5>Our Services</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Branding</a></li>
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">SEO</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Sign up to our newsletter to get more free tips.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center copyright">
+                    &copy; 2024 Agency. All rights reserved.
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 text-start" style="color: #EF6D58; font-size: 0.9rem;line-height: 2rem;font-size: 18px;">
-          MENU
-          <ul style="list-style: none; padding: 0; margin-top: 5px;">
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">About</li>
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">Services</li>
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">Blog</li>
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">Contact</li>
-          </ul>
-        </div>
-        <div class="col-md-3 text-start" style="color: #EF6D58; font-size: 0.9rem;line-height: 2rem;font-size: 18px;">
-          SERVICE
-          <ul style="list-style: none; padding: 0; margin-top: 5px;">
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">Design</li>
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">Development</li>
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">Marketing</li>
-            <li style="color: #495057; line-height: 2rem;font-size: 15px;">See More</li>
-          </ul>
-        </div>
-        <div class="col-md-3 text-end">
-          <a href="#" style="margin-right: 10px;">
-            <img src="social.png" alt="Facebook" style="width: 160px; height: 48px;">
-          </a>
-          
-        </div>
-      </div>
-      <hr style="margin: 20px 0; border-top: 3px solid #F3D1BF;">
-      <div class="row justify-content-between" style="color: #495057; font-size: 0.7rem;">
-        <div class="col-md-6 text-start">
-          Copyright © 2022 Laeeqiq, All Rights Reserved.
-        </div>
-        <div class="col-md-6 text-end">
-          <a href="#" style="color: #495057; text-decoration: none; margin-right: 10px;font-size: 15px;">Terms of Use</a>
-          <a href="#" style="color: #495057; text-decoration: none; font-size: 15px;">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </footer>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   <script>
-    const accordionButtons = document.querySelectorAll('.accordion-button');
-  
-    accordionButtons.forEach(button => {
-     button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      const arrowSpan = button.querySelector('.ms-auto');
-  
-      accordionButtons.forEach(otherButton => {
-       if (otherButton !== button) {
-        const otherArrowSpan = otherButton.querySelector('.ms-auto');
-        otherArrowSpan.textContent = '▼';
-        otherButton.setAttribute('aria-expanded', 'false');
-        const targetId = otherButton.getAttribute('data-bs-target');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-         targetElement.classList.remove('show');
-        }
-       }
-      });
-  
-      arrowSpan.textContent = isExpanded ? '▼' : '▲';
-     });
-    });
-   </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Number Counter
+            function animateNumbers() {
+                const stats = [
+                    { element: document.querySelector('.stats-section .col-md-4:nth-child(1) div'), target: 42, suffix: '%' },
+                    { element: document.querySelector('.stats-section .col-md-4:nth-child(2) div'), target: 73, suffix: '+' },
+                    { element: document.querySelector('.stats-section .col-md-4:nth-child(3) div'), target: 5000, suffix: '' }
+                ];
 
-   
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            stats.forEach(stat => {
+                                let start = 0;
+                                const duration = 2000; // 2 seconds
+                                const increment = stat.target / (duration / 10); // Adjust speed
+                                const timer = setInterval(() => {
+                                    start += increment;
+                                    if (start >= stat.target) {
+                                        clearInterval(timer);
+                                        start = stat.target;
+                                    }
+                                    stat.element.textContent = Math.floor(start) + stat.suffix;
+                                }, 10);
+                            });
+                            observer.disconnect(); // Stop observing once animated
+                        }
+                    });
+                }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-     
- </body>
- </html>
+                const statsSection = document.querySelector('.stats-section');
+                if (statsSection) {
+                    observer.observe(statsSection);
+                }
+            }
+            animateNumbers();
+
+            // Lightbox functionality for videos (using Bootstrap modal)
+            const videoModal = document.getElementById('videoModal');
+            if (videoModal) {
+                videoModal.addEventListener('hidden.bs.modal', function () {
+                    const iframe = this.querySelector('iframe');
+                    if (iframe) {
+                        iframe.src = iframe.src; // Stop video playback
+                    }
+                });
+            }
+
+            // Portfolio Filter/Sorting
+            const filterLinks = document.querySelectorAll('.portfolio-section .list-inline-item a');
+            const portfolioItems = document.querySelectorAll('.portfolio-grid .filter-item');
+
+            filterLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    filterLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Team Testimonials Carousel
+            const teamCarousel = document.querySelector('.team-carousel');
+            const teamSlides = document.querySelectorAll('.team-slide');
+            const prevTeamBtn = document.getElementById('prevTeam');
+            const nextTeamBtn = document.getElementById('nextTeam');
+            const dots = document.querySelectorAll('.carousel-indicators-custom .dot');
+
+            let currentIndex = 0;
+            const slidesPerPage = 4; // Number of visible slides at once
+
+            function updateCarousel() {
+                const totalSlides = teamSlides.length;
+                const maxIndex = Math.ceil(totalSlides / slidesPerPage) - 1;
+
+                if (currentIndex < 0) {
+                    currentIndex = maxIndex;
+                } else if (currentIndex > maxIndex) {
+                    currentIndex = 0;
+                }
+
+                const offset = -currentIndex * (100 / slidesPerPage);
+                teamCarousel.style.transform = `translateX(${offset}%)`;
+
+                dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+
+            prevTeamBtn.addEventListener('click', () => {
+                currentIndex--;
+                updateCarousel();
+            });
+
+            nextTeamBtn.addEventListener('click', () => {
+                currentIndex++;
+                updateCarousel();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            // Initial carousel setup
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
